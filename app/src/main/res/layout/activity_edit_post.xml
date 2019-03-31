@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_vertical_margin"
+    tools:context=".ui.activity.PostActivity"
+    tools:ignore="UnusedAttribute">
+
+    <RelativeLayout
+        android:id="@+id/ll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_profile" />
+
+        <TextView
+            android:id="@+id/tv_name_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_5"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_toEndOf="@id/circle_profile"
+            android:layout_toRightOf="@id/circle_profile"
+            android:fontFamily="@font/googlesans_medium"
+            android:text="@string/txt_name_profile"
+            android:textSize="@dimen/font_size_14" />
+
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name_profile"
+            android:layout_marginStart="@dimen/margin_5"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_toEndOf="@id/circle_profile"
+            android:layout_toRightOf="@id/circle_profile"
+            android:text="@string/txt_date_time" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_form_editpost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_profile">
+
+        <EditText
+            android:id="@+id/et_form_edit_post"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:fontFamily="@font/googlesans_medium"
+            android:gravity="start"
+            android:hint="@string/txt_write_something"
+            android:inputType="text"
+            android:lines="6"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/font_size_14"
+            tools:ignore="Autofill" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_editpost"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_form_editpost"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/btn_post"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_size_14" />
+
+</RelativeLayout>

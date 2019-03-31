@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFillWhite"
+    tools:context=".ui.activity.MainActivity"
+    tools:ignore="UnusedAttribute">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/gradient_bg">
+
+        <ImageButton
+            android:id="@+id/btn_sign_out"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/item_selector"
+            android:contentDescription="@string/txt_todo"
+            app:srcCompat="@drawable/ic_exit" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profil"
+            android:src="@drawable/icon_profile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_profil"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/googlesans_regular"
+            android:text="@string/app_name"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/googlesans_regular"
+            android:text="@string/app_name"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:id="@+id/ll_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_profile"
+        android:layout_centerVertical="true">
+
+        <include layout="@layout/card_post" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/margin_5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_post"
+        android:orientation="vertical">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_no_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/googlesans_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_no_post"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_no_post">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recylerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:visibility="visible" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+

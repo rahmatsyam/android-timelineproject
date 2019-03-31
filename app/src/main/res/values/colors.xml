@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8e24aa</color>
+    <color name="colorPrimaryDark">#8e24aa</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackLight">#5A4E4E</color>
+    <color name="colorDarkGrey">#455A64</color>
+    <color name="colorGrey">#607D8B</color>
+    <color name="colorPrimaryDarkGrey">#616161</color>
+    <color name="colorLightGrey">#EEEEEE</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorFillWhite">#ffffffff</color>
+    <color name="colorLightPurple">#8e24aa</color>
+    <color name="colorDarkPurple">#5c007a</color>
+    <color name="ColorDarkYellow">#FFC107</color>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="colorPrimaryYellow">#ffc107</color>
+    <color name="colorDarkPrimaryYellow">#c79100</color>
+    <color name="colorPrimaryPurple">#d81b60</color>
+    <color name="colorDarkPrimaryPurple">#a00037</color>
+    <!--Color palettes-->
+    <color name="colorYellow">#FFE98A</color>
+    <color name="colorYellowNo">#E9EEC9</color>
+    <color name="colorGreyNo">#E8E2DB</color>
+    <color name="colorOrange">#F16821</color>
+    <color name="colorLightGreen">#65C6C4</color>
+    <color name="colorDeepBlue">#2B2726</color>
+    <color name="colorPurple">#930077</color>
+    <color name="colorBrown">#480032</color>
+    <color name="colorPurplePrimary">#673AB7</color>
+    <color name="colorDarkPurplePrimary">#512DA8</color>
+    <color name="colorBlackVer">#333333</color>
+
+</resources>

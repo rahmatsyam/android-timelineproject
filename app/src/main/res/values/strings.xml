@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Sevima Timeline</string>
+    <string name="txt_post">Post Here</string>
+    <string name="txt_todo">TODO</string>
+    <string name="txt_name_profile">Name Profile</string>
+    <string name="txt_write_something">Write something here…</string>
+    <string name="btn_post">Post</string>
+    <string name="txt_no_post">No Post Yet</string>
+    <string name="txt_date_time">Date Time</string>
+    <string name="txt_status">Your status here</string>
+    <string name="txt_comment">Your comment here</string>
+    <string name="txt_edit">Edit</string>
+    <string name="txt_delete">Delete</string>
+</resources>
