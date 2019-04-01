@@ -3,7 +3,6 @@ package io.github.rahmatsyam.sevimatimeline.ui.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -26,9 +25,9 @@ import io.github.rahmatsyam.sevimatimeline.R;
 import io.github.rahmatsyam.sevimatimeline.data.model.PostItem;
 import io.github.rahmatsyam.sevimatimeline.data.provider.DatabaseHelper;
 import io.github.rahmatsyam.sevimatimeline.ui.activity.EditPostActivity;
-import io.github.rahmatsyam.sevimatimeline.ui.activity.MainActivity;
+import io.github.rahmatsyam.sevimatimeline.ui.util.EmptyRecyclerView;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
+public class PostAdapter extends EmptyRecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
     private Context mContext;
     private List<PostItem> postItems;
@@ -54,7 +53,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PostViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final PostViewHolder viewHolder, final int position) {
 
         final PostItem postItem = postItems.get(position);
         db = new DatabaseHelper(mContext);
@@ -106,14 +105,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
                                                 db.deleteData(postItem.getId());
                                                 dialog.dismiss();
+                                                postItems.remove(viewHolder.getAdapterPosition());
                                                 notifyDataSetChanged();
                                                 Toasty.info(mContext, "Post Deleted", Toast.LENGTH_SHORT).show();
-                                                new Handler().postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                       mContext.startActivity(new Intent(mContext, MainActivity.class));
-                                                    }
-                                                },1200);
+
                                             }
                                         })
                                         .setNegativeButton("No", new DialogInterface.OnClickListener() {

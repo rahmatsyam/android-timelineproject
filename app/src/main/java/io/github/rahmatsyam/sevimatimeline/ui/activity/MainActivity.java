@@ -24,10 +24,12 @@ import io.github.rahmatsyam.sevimatimeline.R;
 import io.github.rahmatsyam.sevimatimeline.data.model.PostItem;
 import io.github.rahmatsyam.sevimatimeline.data.provider.DatabaseHelper;
 import io.github.rahmatsyam.sevimatimeline.ui.adapter.PostAdapter;
+import io.github.rahmatsyam.sevimatimeline.ui.util.EmptyRecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    //RecyclerView recyclerView;
+    EmptyRecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     List<PostItem> list = new ArrayList<>();
     DatabaseHelper db;
@@ -55,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recylerview);
 
 
-
         FirebaseUser user = auth.getCurrentUser();
 
         assert user != null;
@@ -67,10 +68,12 @@ public class MainActivity extends AppCompatActivity {
         tvEmail.setText(user.getEmail());
 
         list = db.getAll();
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PostAdapter(this, list);
         recyclerView.setAdapter(adapter);
+        recyclerView.setEmptyView(findViewById(R.id.empty_view));
 
         cardPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                             signOut();
+                                signOut();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -110,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         list = db.getAll();
-        adapter = new PostAdapter(this,list);
+        adapter = new PostAdapter(this, list);
         recyclerView.setAdapter(adapter);
-
+        recyclerView.setEmptyView(findViewById(R.id.empty_view));
 
     }
 

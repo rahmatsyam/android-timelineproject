@@ -1,6 +1,7 @@
 package io.github.rahmatsyam.sevimatimeline.ui.activity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -106,7 +107,7 @@ public class PostActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        finish();
+                       finish();
                     }
                 }, 1200);
             } else {
@@ -115,6 +116,11 @@ public class PostActivity extends AppCompatActivity {
             }
         }
 
+
+    }
+
+    private void intentAfterSuccess() {
+        startActivity(new Intent(this, MainActivity.class));
 
     }
 }

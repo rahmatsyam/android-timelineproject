@@ -29,12 +29,12 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_profil"
-            android:src="@drawable/icon_profile"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_profile" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -74,15 +74,15 @@
 
 
     <RelativeLayout
-        android:layout_marginTop="@dimen/margin_5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/ll_post"
+        android:layout_marginTop="@dimen/margin_5"
         android:orientation="vertical">
 
         <TextView
-            android:visibility="gone"
-            android:id="@+id/tv_no_post"
+
+            android:id="@+id/empty_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -94,14 +94,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_no_post">
+            android:orientation="vertical">
 
-            <android.support.v7.widget.RecyclerView
+            <io.github.rahmatsyam.sevimatimeline.ui.util.EmptyRecyclerView
                 android:id="@+id/recylerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="vertical"
-                android:visibility="visible" />
+                android:scrollbars="vertical" />
+
+            <!-- <TextView
+
+                 android:id="@+id/empty_view"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:fontFamily="@font/googlesans_regular"
+                 android:gravity="center_horizontal"
+                 android:text="@string/txt_no_post"
+                 android:textSize="20sp" />-->
+
+            <!--  <android.support.v7.widget.RecyclerView
+                  android:id="@+id/recylerview"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:scrollbars="vertical"
+                  android:visibility="visible" />-->
         </LinearLayout>
 
     </RelativeLayout>
