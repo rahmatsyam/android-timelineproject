@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import es.dmoral.toasty.Toasty;
 import io.github.rahmatsyam.sevimatimeline.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -95,16 +96,25 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             final FirebaseUser user = auth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "User Signed In", Toast.LENGTH_SHORT).show();
-                            new Handler().postDelayed(new Runnable() {
+                            Toasty.info(getApplicationContext(), "User signed in", Toast.LENGTH_SHORT).show();
+                            if (user != null) {
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        updateUi();
+                                    }
+                                }, 1000);
+
+                            }
+                            /*new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    updateUi();
+                                    updateUi(user);
                                 }
-                            }, 1000);
+                            }, 1000);*/
 
                         } else {
-                            Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+                            Toasty.info(LoginActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -117,7 +127,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUi() {
+
         startActivity(new Intent(this, MainActivity.class));
+
+        Toasty.info(getApplicationContext(), "Halo", Toast.LENGTH_SHORT).show();
+
+
     }
 
     @Override

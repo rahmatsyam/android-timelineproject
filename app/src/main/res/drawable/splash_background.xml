@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/colorWhite" />
+
+    <item>
+        <bitmap
+           android:tint="@color/colorGrey"
+            android:gravity="center"
+            android:src="@drawable/instagram" />
+    </item>
+</layer-list>

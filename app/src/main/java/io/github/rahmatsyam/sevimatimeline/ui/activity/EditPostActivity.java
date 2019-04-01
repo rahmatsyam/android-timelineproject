@@ -15,6 +15,10 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 import io.github.rahmatsyam.sevimatimeline.R;
@@ -28,7 +32,7 @@ public class EditPostActivity extends AppCompatActivity {
 
     PostItem postItem;
 
-   // LinearLayout llkeyboard;
+    // LinearLayout llkeyboard;
     CircleImageView circleProfile;
     TextView tvName, tvDate;
     EditText etFormEdit;
@@ -72,12 +76,12 @@ public class EditPostActivity extends AppCompatActivity {
             postItem = db.getData(bundle.getInt("ID"));
             etFormEdit.setText(postItem.getStatus());
             tvDate.setText(postItem.getDateSatus());
-
+            final String dateStatus = new SimpleDateFormat("d/M/yyyy - HH:mm", Locale.getDefault()).format(new Date());
 
             btnPost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    db.editData(postItem.getId(), etFormEdit.getText().toString(), tvDate.getText().toString());
+                    db.editData(postItem.getId(), etFormEdit.getText().toString(), dateStatus);
                     Toasty.success(getApplicationContext(), "Update post", Toast.LENGTH_SHORT).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
